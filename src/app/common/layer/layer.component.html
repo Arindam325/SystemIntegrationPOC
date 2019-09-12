@@ -1,0 +1,17 @@
+<div id="layers">
+  <!-- {{layer.layerDepth}}--{{layer.layerName}} -->
+  <div *ngIf="systems.length > 1" class=" d-flex justify-content-between  m-2">
+    <div *ngFor="let system of systems; index as i;">
+      <app-system [system]='system'></app-system>
+      <app-arrow></app-arrow>
+    </div>
+    
+  </div>
+
+  <div *ngIf="systems.length == 1">
+    <app-system [system]='systems[0]'></app-system>
+    <app-arrow></app-arrow>
+  </div>
+
+
+</div>
