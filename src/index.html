@@ -9,10 +9,55 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    body,
+    html {
+      height: 100%;
+      width: auto;
+    }
+
+    .img-container {
+      position: relative;
+      text-align: center;
+    }
+    .centered,
+    .centered-left,
+    .centered-right
+    {
+      position: absolute;
+      top: 50%;      
+      transform: translate(-50%, -50%);
+    }
+    .centered{
+      left: 50%;
+    }
+    .centered-left{     
+      left: 40%;      
+    }
+
+    .centered-right {     
+      left: 60%;      
+    }
+
+    .main-system {
+      left: 10%;
+      right: 10%;
+    }
+
+    .all-btn {
+      background-color: #93996d;
+      border: 2px solid #575d35;
+
+    }
+    .all-btn:hover{
+      background-color: #575d35;
+    }
+
+  </style>
 </head>
 
-<body class="container-fluid">
-    
+<body class="container-fluid h-100 bg-secondary">
+
   <app-root></app-root>
 </body>
 

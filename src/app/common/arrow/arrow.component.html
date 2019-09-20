@@ -1,3 +1,4 @@
-<div id='arrow'>
-  <img src="assets/images/arrow-top-down-dual.png" alt="" class="mx-auto d-block">
-</div>
+<img [src]="imageSrc" alt="" [ngClass]="setClasses()">
+<div *ngIf="arrow.arrowType == 'VAL' && arrow.values?.length==2" class="centered-left">{{arrow.values[0]}}</div>
+<div *ngIf="arrow.arrowType == 'VAL' && arrow.values?.length==2" class="centered-right">{{arrow.values[1]}}</div>
+<div *ngIf="arrow.arrowType == 'VAL' && arrow.values?.length==1" class="centered">{{arrow.values[0]}}</div>

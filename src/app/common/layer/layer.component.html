@@ -1,17 +1,107 @@
-<div id="layers">
-  <!-- {{layer.layerDepth}}--{{layer.layerName}} -->
-  <div *ngIf="systems.length > 1" class=" d-flex justify-content-between  m-2">
-    <div *ngFor="let system of systems; index as i;">
-      <app-system [system]='system'></app-system>
-      <app-arrow></app-arrow>
+<div class="row">
+
+  <div [ngClass]="setClassesSystem()" id="system-{{i}}" *ngFor="let system of systems; index as i;">
+    <app-system [system]='system' (systemDetails)="showDetails(system)"></app-system>
+  </div>
+
+  <div [ngClass]="setClassesArrow(arrow)" id="arrow-{{i}}" *ngFor="let arrow of arrows">
+    <app-arrow [arrow]="arrow"></app-arrow>
+  </div>
+</div>
+<div id="system-details-layer" class="row system-details-layer bg-dark text-light my-3">
+  <div class="col system-details" *ngIf="showSystemDetails">
+    <div class="row">
+      <div class="col text-right">
+        <button type="button" class="close text-light" (click)="closeSystemDetails()">&times;</button>
+      </div>
     </div>
-    
+    <div class="row">
+      <div class="col text-center lead">{{system?.name}}</div>
+    </div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10">
+
+        <div class="row">
+          <div class="col">
+            <button class="btn all-btn m-2">Internal Queue</button>
+            <button class="btn all-btn m-2">Health Status</button>
+          </div>
+
+        </div>
+        <div class="row py-3">
+          <div class="col border">
+            <p class="lead">Internal Queue</p>
+            <table class="table table-dark table-bordered table-hover table-striped small">
+              <thead>
+                <tr>
+                  <th>Queue Name</th>
+                  <th># Messages</th>
+                  <th>Max Depth</th>
+                  <th>Time after Last Msg.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ALS Internal Queue for CIF Data (UACUE01/BNML.CUE.BNML.CUE.CIF_INTERNAL.UAT5)</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>00:00:00</td>
+                </tr>
+                <tr>
+                  <td>ALS Internal Queue for GSF Data (UACUE01/BNML.CUE.BNML.CUE.GSF_INTERNAL.UAT5)</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>00:00:00</td>
+                </tr>
+                <tr>
+                  <td>ALS Internal Queue for MMD Data (UACUE01/BNML.CUE.BNML.CUE.MMD_INTERNAL.UAT5)</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>00:00:00</td>
+                </tr>
+                <tr>
+                  <td>ALS Internal Queue for CIF Data (UACUE01/BNML.CUE.BNML.CUE.CIF_INTERNAL.UAT5)</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>00:00:00</td>
+                </tr>
+                <tr>
+                  <td>ALS Internal Queue for GSF Data (UACUE01/BNML.CUE.BNML.CUE.GSF_INTERNAL.UAT5)</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>00:00:00</td>
+                </tr>
+                <tr>
+                  <td>ALS Internal Queue for MMD Data (UACUE01/BNML.CUE.BNML.CUE.MMD_INTERNAL.UAT5)</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>00:00:00</td>
+                </tr>
+                <tr>
+                  <td>ALS Internal Queue for CIF Data (UACUE01/BNML.CUE.BNML.CUE.CIF_INTERNAL.UAT5)</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>00:00:00</td>
+                </tr>
+                <tr>
+                  <td>ALS Internal Queue for GSF Data (UACUE01/BNML.CUE.BNML.CUE.GSF_INTERNAL.UAT5)</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>00:00:00</td>
+                </tr>
+                <tr>
+                  <td>ALS Internal Queue for MMD Data (UACUE01/BNML.CUE.BNML.CUE.MMD_INTERNAL.UAT5)</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>00:00:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
   </div>
-
-  <div *ngIf="systems.length == 1">
-    <app-system [system]='systems[0]'></app-system>
-    <app-arrow></app-arrow>
-  </div>
-
-
 </div>

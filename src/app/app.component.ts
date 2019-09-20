@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Layer } from './common/shared/models/layer';
 import { System } from './common/shared/models/system';
+import { Arrow, ArrowDirection, ArrowTypes } from './common/shared/models/arrow';
+import { LayerService } from './common/shared/services/layer.service';
+
 
 @Component({
   selector: 'app-root',
@@ -11,26 +14,15 @@ export class AppComponent implements OnInit {
   title = 'EPZDashboardPOC';
   layers: Layer[] = [];
 
-  constructor() { }
+  constructor(private layerService: LayerService) {
+
+  }
 
   ngOnInit() {
-    this.layers = [
-      new Layer('Application Layer', 1, [
-        new System('ALS'),
-        new System('LQM'),
-        new System('OLS'),
-        new System('FNI')
-      ]),
-      new Layer('Middleware Layer', 2, [
-        new System('ESB'),
-        new System('ESB'),
-        new System('ESB'),
-        new System('ESB')
-      ]),
-      new Layer('EPH Layer', 3, [
-        new System('EPH', 'M')
-      ])
+    this.layerService.getLayerData().subscribe(v => {
+      this.layers = v;
+    });
 
-    ];
+    console.log(this.layers);
   }
 }
